@@ -26,7 +26,7 @@ module.exports = {
         if (foundUser) {
             res.status(400).send('username already exists')
         } else {
-            const salt = bcrypt.gentSaltSync(10)
+            const salt = bcrypt.genSaltSync(10)
             const hash = bcrypt.hashSync(password, salt)
             const newUser = await User.create({username: username, hashedPass: hash})
             const token = createToken(newUser.dataValues.username, newUser.dataValues.id)

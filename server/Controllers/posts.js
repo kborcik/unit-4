@@ -19,7 +19,7 @@ module.exports = {
                 where: {privateStatus: false},
                 include: [{
                     model: User,
-                    required: true,
+                    // required: true,
                     attributes: [`username`]
                 }]
             })

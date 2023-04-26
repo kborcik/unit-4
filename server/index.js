@@ -32,7 +32,7 @@ app.delete('/posts/:id',isAuthenticated, deletePost)
 
 
 
-sequelize.sync()
+sequelize.sync({force:true})
 .then(() => {
-    app.listen(3000, ()=> {console.log(`Server is running on port ${PORT}`);})
+    app.listen(PORT, ()=> {console.log(`Server is running on port ${PORT}`);})
 })

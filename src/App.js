@@ -18,15 +18,15 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route
           path="/auth"
-          element={!authCtx.token ? <Auth /> : <Navigate to="/" />}
+          element={authCtx.token ? <Auth /> : <Navigate to="/" />}
         />
         <Route
           path="/form"
-          element={!authCtx.token ? <Form /> : <Navigate to="/" />}
+          element={authCtx.token ? <Form /> : <Navigate to="/" />}
         />
         <Route
           path="/profile"
-          element={!authCtx.token ? <Profile /> : <Navigate to="/" />}
+          element={authCtx.token ? <Profile /> : <Navigate to="/" />}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

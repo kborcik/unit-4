@@ -1,6 +1,6 @@
 const {DataTypes} = require('sequelize')
 
-const {sequelize} = require('../util/database')
+const {sequelize} = require('../Util/database')
 
 module.exports = {
     Post : sequelize.define('post', {

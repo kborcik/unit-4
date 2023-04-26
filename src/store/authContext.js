@@ -60,7 +60,7 @@ export const AuthContextProvider = (props) => {
     }
   }, [])
 
-  const login = (exp, token, userId) => {
+  const login = (token, exp, userId) => {
     setToken(token)
     setUserId(userId)
     localStorage.setItem('token', token)
