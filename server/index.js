@@ -5,6 +5,7 @@ const {User} = require('./Models/user')
 const {Post} = require('./Models/post')
 const express = require('express')
 const cors= require('cors')
+const path = require('path');
 
 
 const {register,login} = require('./Controllers/auth')
@@ -17,13 +18,19 @@ Post.belongsTo(User)
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 app.post('/register', register)
 app.post('/login', login)
 
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });  
 app.get('/posts', getAllPosts)
 app.get('/userposts/:userId', getCurrentUserPosts)
+
+
 
 app.post('/posts', isAuthenticated, addPost)
 app.put('/posts/:id', isAuthenticated, editPost)
