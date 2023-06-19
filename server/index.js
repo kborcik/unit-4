@@ -24,9 +24,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.post('/register', register)
 app.post('/login', login)
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });  
+-app.get('/', function (req, res) {
+    +app.get('/*', function (req, res) {
+       res.sendFile(path.join(__dirname, 'build', 'index.html'));
+     });
 app.get('/posts', getAllPosts)
 app.get('/userposts/:userId', getCurrentUserPosts)
 
